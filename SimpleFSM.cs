@@ -119,10 +119,10 @@ public class SimpleFSM : Node
 
     public Action GetDelegateForMethod(string methodName)
     {
-        var methodInfo = ReflectionUtils.GetMethodInfo(this, methodName);
+        var methodInfo = ReflectionUtils.GetMethodInfo(this.GetParent(), methodName);
         if (methodInfo != null)
         {
-            return ReflectionUtils.CreateDelegate<Action>(this, methodInfo);
+            return ReflectionUtils.CreateDelegate<Action>(this.GetParent(), methodInfo);
         }
 
         return null;

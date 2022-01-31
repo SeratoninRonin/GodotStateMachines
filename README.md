@@ -4,7 +4,7 @@ Two different state machines to use in Godot C#
 
 # SimpleFSM
 
-This node offers a quick and simple way to get AI up and running.  Simply add this node to your tree, and then in the inspector, find the "States" array.  This is a list of strings, one for each state you want your object to be in.
+This node offers a quick and simple way to get AI up and running.  Simply add this node as a child, and then in the inspector/code, find the "States" array.  This is a list of strings, one for each state you want your object to be in.
 
 ![SimpleFSM](https://user-images.githubusercontent.com/61599196/151866978-86ec6ed3-edd8-4aeb-9ecb-788c02cb91f7.png)
 

@@ -124,7 +124,6 @@ public class SimpleFSM : Node
         {
             return ReflectionUtils.CreateDelegate<Action>(this.GetParent(), methodInfo);
         }
-
         return null;
     }
 }

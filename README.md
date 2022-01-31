@@ -36,3 +36,37 @@ public class MyNode : Node
   public void Idle_Exit() { GD.Print("Back to it!"); }
 }
 ```
+# NodeStateMachine
+
+The next step up is NodeStateMachine which implements the "states as objects" pattern. NodeStateMachine uses separate classes for each state so it is a better choice for more complex systems.
+
+We start to get into the concept of a context with NodeStateMachine. In coding, the context is just the class used to satisfy a generic constraint. in a List<string> the string would be the context class, the class that the list operates on. With NodeStateMachine you get to specify the context class. It could be your Enemy class, Player class or any other class that derives from Node.
+  
+Example:
+Here is a simple example showing the usage (with the State subclasses omitted for brevity):
+
+```C#
+// create a state machine that will work with an object of type SomeClass as the focus with an initial state of PatrollingState
+var machine = new SKStateMachine<SomeClass>( someClass, new PatrollingState() );
+
+// we can now add any additional states
+machine.AddState( new AttackState() );
+machine.AddState( new ChaseState() );
+
+// this method would typically be called in an update of an object
+machine.Update( Time.deltaTime );
+
+// change states. the state machine will automatically create and cache an instance of the class (in this case ChasingState)
+machine.ChangeState<ChasingState>();
+```
+
+# Examples
+  
+An example of a sprite walking around has been implemented using both state machines and is included in the /Examples folder
+  
+# Acknowledgements
+
+These machines were inspired by/adapted from the excellent Nez framework for MonoGame: https://github.com/prime31/Nez
+  
+# License
+This code is MIT licensed and provided as-is.

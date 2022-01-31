@@ -110,8 +110,8 @@ public class SimpleFSM : Node
     {
         var state = new StateMethodCache();
         state.EnterState = GetDelegateForMethod(stateName + "_Enter");
-        state.Tick = GetDelegateForMethod(stateName + "_Tick");
-        state.PhysicsTick = GetDelegateForMethod(stateName + "_PhysicsTick");
+        state.Tick = GetDelegateForMethod(stateName + "_Process");
+        state.PhysicsTick = GetDelegateForMethod(stateName + "_PhysicsProcess");
         state.ExitState = GetDelegateForMethod(stateName + "_Exit");
 
         _stateCache[stateName] = state;

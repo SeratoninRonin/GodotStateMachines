@@ -54,7 +54,7 @@ machine.AddState( new AttackState() );
 machine.AddState( new ChaseState() );
 
 // this method would typically be called in an update of an object
-machine.Update( Time.deltaTime );
+machine.Update(delta);
 
 // change states. the state machine will automatically create and cache an instance of the class (in this case ChasingState)
 machine.ChangeState<ChasingState>();

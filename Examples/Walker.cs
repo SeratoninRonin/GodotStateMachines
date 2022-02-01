@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class NodeStateSprite : Sprite
+public class Walker : Sprite
 {
-    NodeStateMachine<Sprite> stateMachine;
+    NodeStateMachine<Walker> stateMachine;
 
     public override void _Ready()
     {
-        stateMachine = new NodeStateMachine<Sprite>(this, new WalkState());
+        stateMachine = new NodeStateMachine<Walker>(this, new WalkState());
         stateMachine.AddState(new IdleState());
     }
 
@@ -17,7 +17,7 @@ public class NodeStateSprite : Sprite
     }
 }
 
-public class WalkState : NodeState<Sprite>
+public class WalkState : NodeState<Walker>
 {
     float walk_timer = 3f;
     Vector2 dir = Vector2.Zero;
@@ -63,7 +63,7 @@ public class WalkState : NodeState<Sprite>
             pos.y = _context.GetViewportRect().End.y;
             dir.y = -dir.y;
         }
-        walk_timer -= _context.GetPhysicsProcessDeltaTime();
+        walk_timer -= _context.GetProcessDeltaTime();
         if (walk_timer < 0)
         {
             _machine.ChangeState(typeof(IdleState));
@@ -76,7 +76,7 @@ public class WalkState : NodeState<Sprite>
     }
 }
 
-public class IdleState : NodeState<Sprite>
+public class IdleState : NodeState<Walker>
 {
     float idle_timer = 3f;
     public override void Begin()

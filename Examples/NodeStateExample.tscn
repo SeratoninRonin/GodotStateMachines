@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Examples/NodeStateSprite.cs" type="Script" id=1]
+[ext_resource path="res://Examples/Walker.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Root" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Walker" type="Sprite" parent="."]
 position = Vector2( 517, 306 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )

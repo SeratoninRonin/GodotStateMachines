@@ -4,7 +4,7 @@
 [ext_resource path="res://SimpleFSM.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
-[node name="Example" type="Node2D"]
+[node name="FSMExample" type="Node2D"]
 script = ExtResource( 1 )
 Speed = 100.0
 
@@ -13,3 +13,4 @@ position = Vector2( 490, 295 )
 texture = ExtResource( 3 )
 
 [node name="FSM" parent="." instance=ExtResource( 2 )]
+States = PoolStringArray( "Idle", "Walk" )
